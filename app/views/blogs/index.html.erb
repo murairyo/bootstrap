@@ -1,0 +1,48 @@
+<h1 class="indexTitle text-center">ブログ一覧</h1>
+
+<p><%= notice %></p>
+
+<div class="container">
+   <div class="row">
+    <!--<th>タイトル</th>-->
+    <!--<th>内容</th>-->
+ 
+
+<% @blogs.each do |blog| %>
+
+ <div class="margin col-xs-12 col-md-6 blog-panel">
+    <h3><%= blog.title %></h3>
+    <p><%= blog.content %></p>
+    <span><%= link_to '詳細を確認する', blog_path(blog.id),class: 'btn btn-info' %></span>
+    <span><%= link_to "ブログを編集する", edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' },class:'btn btn-success'%></span>
+    <span><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } ,class:"btn btn-warning"%></span>
+</div>
+<% end %>
+</div>
+
+
+<p class="newPost"><%= link_to '新しくブログを投稿する', new_blog_path %></p>
+</div>
+
+<!--<nav class="navbar navbar-default">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="navbar-header">-->
+<!--      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">-->
+<!--        <span class="sr-only">Bootstrap</span>-->
+<!--        <span class="icon-bar"></span>-->
+<!--        <span class="icon-bar"></span>-->
+<!--        <span class="icon-bar"></span>-->
+<!--      </button>-->
+<!--      <a class="navbar-brand" href="#">Bootstrap-->
+
+<!--      </a>-->
+<!--    </div>-->
+<!--    <div id="gnavi" class="collapse navbar-collapse">-->
+<!--      <ul class="nav navbar-nav">-->
+<!--        <li><a href="">top</a></li>-->
+<!--        <li><a href="">menu1</a></li>-->
+<!--        <li><a href="">menu2</a></li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->

@@ -1,0 +1,30 @@
+<div class="contentBlock container-fluid">
+  <%= form_with(model: @blog, local: true ,url: choose_new_or_edit ) do |form| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="blog_title col-xs-12 col-sm-6 col-md-6">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="blog_title col-xs-12 col-sm-6 col-md-6">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <div class="text-center"><%= form.submit "投稿する" ,:class=>"submitBtn"%></div>
+  
+ </div>
+<% end %>
+<div class="text-center">
+<%= link_to "ブログ一覧画面にもどる", blogs_path, class: 'btn btn-info'  %>
+</div>
+</div>
